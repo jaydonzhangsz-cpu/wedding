@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Jaydon & Sissi 婚礼</title>
+<style>
+  :root {
+    --gold: #C9A96E;
+    --gold-light: #E8D5A3;
+    --rose: #E8C4C4;
+    --blush: #F7EEF0;
+    --cream: #FDF8F3;
+    --charcoal: #2C2C2C;
+    --warm-gray: #6B5B4F;
+    --light-gray: #9B8B7E;
+    --white: #FFFFFF;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+    background: var(--cream);
+    color: var(--charcoal);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ─── Hero ─── */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+    background: linear-gradient(180deg, #F7EEF0 0%, #FDF8F3 45%, #E8D5A3 100%);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -50%; left: -50%;
+    width: 200%; height: 200%;
+    background:
+      radial-gradient(ellipse at 25% 25%, rgba(201,169,110,0.09) 0%, transparent 55%),
+      radial-gradient(ellipse at 75% 75%, rgba(232,196,196,0.12) 0%, transparent 55%);
+    animation: shimmer 14s ease-in-out infinite;
+  }
+
+  @keyframes shimmer {
+    0%, 100% { transform: translate(0,0); }
+    50% { transform: translate(-2.5%, -2.5%); }
+  }
+
+  .hero-content { position: relative; z-index: 1; }
+
+  .hero-floral {
+    position: absolute;
+    top: 2rem; right: 2rem;
+    width: 56px; height: 56px;
+    opacity: 0.25;
+  }
+
+  .hero-floral2 {
+    position: absolute;
+    bottom: 3rem; left: 2rem;
+    width: 44px; height: 44px;
+    opacity: 0.2;
+    transform: rotate(30deg);
+  }
+
+  .couple-names {
+    font-size: clamp(2.6rem, 11vw, 5rem);
+    font-weight: 200;
+    letter-spacing: 0.1em;
+    color: var(--charcoal);
+  }
+
+  .couple-cn {
+    font-size: 1rem;
+    font-weight: 300;
+    color: var(--warm-gray);
+    letter-spacing: 0.2em;
+    margin-top: 0.6rem;
+  }
+
+  .hero-divider {
+    width: 48px;
+    height: 1px;
+    background: var(--gold);
+    margin: 1.6rem auto;
+    position: relative;
+  }
+
+  .hero-divider::after {
+    content: '';
+    position: absolute;
+    left: 50%; top: 50%;
+    transform: translate(-50%, -50%);
+    width: 5px; height: 5px;
+    background: var(--gold);
+    border-radius: 50%;
+  }
+
+  .hero-date {
+    font-size: 1.15rem;
+    font-weight: 300;
+    letter-spacing: 0.25em;
+    color: var(--charcoal);
+  }
+
+  .hero-venue {
+    font-size: 0.85rem;
+    color: var(--light-gray);
+    letter-spacing: 0.2em;
+    margin-top: 0.5rem;
+    font-weight: 300;
+  }
+
+  .hero-badge {
+    display: inline-block;
+    border: 1px solid var(--gold);
+    padding: 0.55rem 1.6rem;
+    margin-top: 2.4rem;
+    font-size: 0.78rem;
+    letter-spacing: 0.3em;
+    color: var(--gold);
+    font-weight: 300;
+  }
+
+  /* ─── Nav (decorative only) ─── */
+  .nav {
+    background: rgba(253,248,243,0.9);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(201,169,110,0.15);
+    padding: 0.7rem 1.5rem;
+    display: flex;
+    justify-content: center;
+    gap: 2.5rem;
+  }
+
+  .nav-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    color: var(--light-gray);
+    font-weight: 300;
+  }
+
+  /* ─── Section ─── */
+  .section {
+    padding: 3rem 1.5rem;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .section-title {
+    font-size: 1.4rem;
+    font-weight: 300;
+    color: var(--charcoal);
+    letter-spacing: 0.2em;
+    text-align: center;
+  }
+
+  .section-divider {
+    width: 36px;
+    height: 1px;
+    background: var(--gold);
+    margin: 0.9rem auto 2rem;
+  }
+
+  /* ─── Info Cards ─── */
+  .info-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.9rem;
+    margin-bottom: 2rem;
+  }
+
+  .info-card {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 1.4rem 1rem;
+    text-align: center;
+    box-shadow: 0 2px 18px rgba(201,169,110,0.07);
+    border: 1px solid rgba(201,169,110,0.1);
+  }
+
+  .info-icon {
+    width: 28px;
+    height: 28px;
+    margin: 0 auto 0.5rem;
+    color: var(--gold);
+  }
+
+  .info-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    color: var(--light-gray);
+    margin-bottom: 0.3rem;
+  }
+
+  .info-value {
+    font-size: 0.9rem;
+    color: var(--charcoal);
+    font-weight: 400;
+    line-height: 1.4;
+  }
+
+  /* ─── Highlight ─── */
+  .highlight-card {
+    background: linear-gradient(135deg, #F7EEF0 0%, #E8D5A3 100%);
+    border-radius: 20px;
+    padding: 2.5rem 1.5rem;
+    text-align: center;
+  }
+
+  .highlight-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.35em;
+    color: var(--warm-gray);
+    font-weight: 300;
+  }
+
+  .highlight-time {
+    font-size: 2.8rem;
+    font-weight: 200;
+    color: var(--charcoal);
+    letter-spacing: 0.06em;
+    margin: 0.35rem 0;
+  }
+
+  .highlight-date {
+    font-size: 0.78rem;
+    color: var(--warm-gray);
+    letter-spacing: 0.12em;
+  }
+
+  .highlight-venue {
+    font-size: 0.72rem;
+    color: var(--light-gray);
+    margin-top: 0.5rem;
+    letter-spacing: 0.08em;
+  }
+
+  /* ─── Timeline ─── */
+  .timeline-section {
+    background: var(--white);
+    padding: 3rem 1.2rem;
+    max-width: 100%;
+  }
+
+  .timeline {
+    max-width: 600px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 1.1rem;
+    top: 0; bottom: 0;
+    width: 1px;
+    background: linear-gradient(to bottom, transparent, var(--gold-light) 8%, var(--gold-light) 92%, transparent);
+  }
+
+  .timeline-item {
+    display: flex;
+    gap: 1.1rem;
+    margin-bottom: 0.2rem;
+  }
+
+  .timeline-marker {
+    width: 2.2rem;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 0.85rem;
+  }
+
+  .dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--gold);
+    border: 2px solid var(--white);
+    box-shadow: 0 0 0 1px var(--gold-light);
+    flex-shrink: 0;
+  }
+
+  .dot-dark {
+    background: var(--charcoal);
+    box-shadow: 0 0 0 1px var(--charcoal);
+  }
+
+  .dot-line {
+    width: 1px;
+    flex: 1;
+    background: var(--gold-light);
+    margin-top: 4px;
+    min-height: 14px;
+  }
+
+  .timeline-content {
+    flex: 1;
+    padding: 0.75rem 0 1.3rem;
+  }
+
+  .time {
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+    color: var(--gold);
+    margin-bottom: 0.18rem;
+  }
+
+  .title {
+    font-size: 0.93rem;
+    color: var(--charcoal);
+    font-weight: 500;
+    line-height: 1.4;
+  }
+
+  .detail {
+    font-size: 0.76rem;
+    color: var(--warm-gray);
+    line-height: 1.55;
+    margin-top: 0.22rem;
+  }
+
+  .tag {
+    display: inline-block;
+    background: var(--blush);
+    color: var(--warm-gray);
+    font-size: 0.63rem;
+    padding: 0.18rem 0.55rem;
+    border-radius: 20px;
+    margin-top: 0.3rem;
+  }
+
+  .phase-header {
+    font-size: 0.85rem;
+    font-weight: 400;
+    color: var(--charcoal);
+    text-align: center;
+    margin: 2.2rem 0 1rem;
+    letter-spacing: 0.25em;
+  }
+
+  .phase-header::before,
+  .phase-header::after {
+    content: '——';
+    color: var(--gold);
+    margin: 0 0.5rem;
+    font-weight: 200;
+  }
+
+  .ceremony-row {
+    background: linear-gradient(90deg, rgba(201,169,110,0.09), transparent);
+    border-radius: 10px;
+    padding: 0.3rem 0.3rem 0.3rem 0;
+    margin-left: -0.3rem;
+  }
+
+  .ceremony-row .dot { background: var(--charcoal); box-shadow: 0 0 0 1px var(--charcoal); }
+  .ceremony-row .time { color: var(--charcoal); font-size: 0.72rem; }
+  .ceremony-row .timeline-content { padding-top: 0.5rem; }
+  .ceremony-row .title { font-size: 1rem; }
+
+  /* ─── Photo Strip ─── */
+  .photo-strip {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0 1.5rem 1.5rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+  }
+
+  .photo-strip img {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 10px;
+    display: block;
+  }
+
+  .photo-strip .photo-wide {
+    grid-column: 1 / -1;
+    height: 180px;
+  }
+
+  /* ─── Games ─── */
+  .games-section {
+    background: var(--cream);
+    padding: 3rem 1.5rem;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .game-card {
+    background: var(--white);
+    border-radius: 14px;
+    padding: 1.1rem 1.2rem;
+    margin-bottom: 0.85rem;
+    border-left: 2.5px solid var(--gold);
+    box-shadow: 0 1px 12px rgba(201,169,110,0.05);
+  }
+
+  .game-header {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .game-icon {
+    width: 18px;
+    height: 18px;
+    color: var(--gold);
+    flex-shrink: 0;
+  }
+
+  .game-name {
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: var(--charcoal);
+  }
+
+  .game-rules {
+    font-size: 0.76rem;
+    color: var(--warm-gray);
+    line-height: 1.7;
+    padding-left: calc(18px + 0.6rem);
+  }
+
+  .game-rules strong {
+    color: var(--charcoal);
+    font-weight: 500;
+  }
+
+  /* ─── Footer ─── */
+  .footer {
+    text-align: center;
+    padding: 3rem 1.5rem;
+    background: var(--charcoal);
+  }
+
+  .footer-hearts {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .heart-line {
+    width: 28px;
+    height: 1px;
+    background: var(--gold);
+    opacity: 0.5;
+  }
+
+  .heart-diamond {
+    width: 6px;
+    height: 6px;
+    background: var(--gold);
+    transform: rotate(45deg);
+    opacity: 0.6;
+  }
+
+  .footer-names {
+    font-size: 1.15rem;
+    color: var(--gold-light);
+    letter-spacing: 0.2em;
+    font-weight: 300;
+  }
+
+  .footer-date {
+    font-size: 0.72rem;
+    color: rgba(255,255,255,0.4);
+    letter-spacing: 0.25em;
+    margin-top: 0.4rem;
+  }
+
+  .footer-note {
+    margin-top: 1.5rem;
+    font-size: 0.6rem;
+    letter-spacing: 0.18em;
+    color: rgba(255,255,255,0.2);
+  }
+
+  /* ─── Animations ─── */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(14px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+</head>
+<body>
+
+<!-- ─── Hero ─── -->
+<section class="hero">
+  <!-- Floral SVG ornaments -->
+  <svg class="hero-floral" viewBox="0 0 60 60" fill="none">
+    <circle cx="30" cy="30" r="4" fill="#C9A96E"/>
+    <ellipse cx="30" cy="14" rx="5" ry="9" fill="#E8C4C4" opacity="0.7" transform="rotate(0 30 30)"/>
+    <ellipse cx="30" cy="14" rx="5" ry="9" fill="#E8C4C4" opacity="0.7" transform="rotate(45 30 30)"/>
+    <ellipse cx="30" cy="14" rx="5" ry="9" fill="#E8C4C4" opacity="0.7" transform="rotate(90 30 30)"/>
+    <ellipse cx="30" cy="14" rx="5" ry="9" fill="#E8C4C4" opacity="0.7" transform="rotate(135 30 30)"/>
+    <ellipse cx="30" cy="14" rx="5" ry="9" fill="#E8C4C4" opacity="0.7" transform="rotate(180 30 30)"/>
+    <ellipse cx="30" cy="14" rx="5" ry="9" fill="#E8C4C4" opacity="0.7" transform="rotate(225 30 30)"/>
+    <ellipse cx="30" cy="14" rx="5" ry="9" fill="#E8C4C4" opacity="0.7" transform="rotate(270 30 30)"/>
+    <ellipse cx="30" cy="14" rx="5" ry="9" fill="#E8C4C4" opacity="0.7" transform="rotate(315 30 30)"/>
+    <circle cx="30" cy="30" r="7" fill="none" stroke="#E8D5A3" stroke-width="0.5"/>
+    <circle cx="30" cy="30" r="12" fill="none" stroke="#E8D5A3" stroke-width="0.5"/>
+  </svg>
+
+  <svg class="hero-floral2" viewBox="0 0 50 50" fill="none">
+    <circle cx="25" cy="25" r="3" fill="#C9A96E"/>
+    <ellipse cx="25" cy="11" rx="4" ry="7" fill="#E8C4C4" opacity="0.6" transform="rotate(30 25 25)"/>
+    <ellipse cx="25" cy="11" rx="4" ry="7" fill="#E8C4C4" opacity="0.6" transform="rotate(90 25 25)"/>
+    <ellipse cx="25" cy="11" rx="4" ry="7" fill="#E8C4C4" opacity="0.6" transform="rotate(150 25 25)"/>
+    <ellipse cx="25" cy="11" rx="4" ry="7" fill="#E8C4C4" opacity="0.6" transform="rotate(210 25 25)"/>
+    <ellipse cx="25" cy="11" rx="4" ry="7" fill="#E8C4C4" opacity="0.6" transform="rotate(270 25 25)"/>
+    <ellipse cx="25" cy="11" rx="4" ry="7" fill="#E8C4C4" opacity="0.6" transform="rotate(330 25 25)"/>
+  </svg>
+
+  <div class="hero-content">
+    <div class="couple-names">Jaydon &amp; Sissi</div>
+    <div class="couple-cn">张钰祺 &amp; 魏廖诗雅</div>
+    <div class="hero-divider"></div>
+    <div class="hero-date">2026年4月27日</div>
+    <div class="hero-venue">印度尼西亚 · 巴厘岛</div>
+    <div class="hero-badge">星期一 · Monday</div>
+  </div>
+</section>
+
+<!-- ─── Nav (decorative) ─── -->
+<div class="nav">
+  <span class="nav-label">晨间准备</span>
+  <span class="nav-label">婚礼仪式</span>
+  <span class="nav-label">晚宴</span>
+</div>
+
+<!-- ─── Overview ─── -->
+<section class="section">
+  <div class="section-title">婚礼日程</div>
+  <div class="section-divider"></div>
+
+  <div class="info-cards">
+    <div class="info-card">
+      <svg class="info-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="3" y="4" width="18" height="18" rx="2"/>
+        <line x1="16" y1="2" x2="16" y2="6"/>
+        <line x1="8" y1="2" x2="8" y2="6"/>
+        <line x1="3" y1="10" x2="21" y2="10"/>
+      </svg>
+      <div class="info-label">日期</div>
+      <div class="info-value">2026年4月27日</div>
+    </div>
+    <div class="info-card">
+      <svg class="info-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="10"/>
+        <polyline points="12 6 12 12 16 14"/>
+      </svg>
+      <div class="info-label">仪式时间</div>
+      <div class="info-value">13:00</div>
+    </div>
+    <div class="info-card">
+      <svg class="info-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+        <polyline points="9 22 9 12 15 12 15 22"/>
+      </svg>
+      <div class="info-label">仪式地点</div>
+      <div class="info-value">凯宾斯基大教堂</div>
+    </div>
+    <div class="info-card">
+      <svg class="info-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M18 8h1a4 4 0 0 1 0 8h-1"/>
+        <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/>
+        <line x1="6" y1="1" x2="6" y2="4"/>
+        <line x1="10" y1="1" x2="10" y2="4"/>
+        <line x1="14" y1="1" x2="14" y2="4"/>
+      </svg>
+      <div class="info-label">晚宴地点</div>
+      <div class="info-value">努沙杜瓦肉桂</div>
+    </div>
+  </div>
+
+  <div class="highlight-card fade-in">
+    <div class="highlight-label">仪式开始</div>
+    <div class="highlight-time">13:00</div>
+    <div class="highlight-date">2026年4月27日 · 星期一</div>
+    <div class="highlight-venue">凯宾斯基大教堂 · Bali</div>
+  </div>
+</section>
+
+<!-- ─── Timeline ─── -->
+<div class="timeline-section">
+  <div class="section-title" style="padding-top:0.5rem;">全天流程</div>
+  <div class="section-divider"></div>
+
+  <div class="timeline">
+
+    <!-- 晨间准备 -->
+    <div class="phase-header">晨间准备</div>
+
+    <div class="timeline-item fade-in">
+      <div class="timeline-marker"><div class="dot"></div><div class="dot-line"></div></div>
+      <div class="timeline-content">
+        <div class="time">7:55</div>
+        <div class="title">化妆师抵达新人房间</div>
+        <div class="tag">凯宾斯基酒店</div>
+      </div>
+    </div>
+
+    <div class="timeline-item fade-in">
+      <div class="timeline-marker"><div class="dot"></div><div class="dot-line"></div></div>
+      <div class="timeline-content">
+        <div class="time">8:00 — 10:00</div>
+        <div class="title">新娘化妆 · 第一套：晨袍</div>
+      </div>
+    </div>
+
+    <div class="timeline-item fade-in">
+      <div class="timeline-marker"><div class="dot"></div><div class="dot-line"></div></div>
+      <div class="timeline-content">
+        <div class="time">10:00</div>
+        <div class="title">摄像摄影团队抵达</div>
+        <div class="detail">星辰摄影 / 摄像（10小时服务）</div>
+      </div>
+    </div>
+
+    <div class="timeline-item fade-in">
+      <div class="timeline-marker"><div class="dot"></div><div class="dot-line"></div></div>
+      <div class="timeline-content">
+        <div class="time">10:00 — 10:30</div>
+        <div class="title">新郎化妆</div>
+      </div>
+    </div>
+
+    <div class="timeline-item fade-in">
+      <div class="timeline-marker"><div class="dot"></div><div class="dot-line"></div></div>
+      <div class="timeline-content">
+        <div class="time">10:30 — 11:00</div>
+        <div class="title">新娘补妆换中式礼服</div>
+        <div class="detail">第二套：中式礼服 · 新娘美拍</div>
+      </div>
+    </div>
+
+    <div class="timeline-item fade-in">
+      <div class="timeline-marker"><div class="dot"></div><div class="dot-line"></div></div>
+      <div class="timeline-content">
+        <div class="time">11:00 — 11:30</div>
+        <div class="title">接亲仪式</div>
+        <div class="detail">5个游戏环节 · 伴郎团闯关</div>
+        <div class="tag">接亲游戏</div>
+      </div>
+    </div>
+
+    <div class="timeline-item fade-in">
+      <div class="timeline-marker"><div class="dot"></div><div class="dot-line"></div></div>
+      <div class="timeline-content">
+        <div class="time">11:30 — 12:00</div>
+        <div class="title">奉茶仪式</div>
+        <div class="detail">敬茶仪式 + 与家人合照</div>
+        <div class="tag">双方父母</div>
+      </div>
+    </div>
+
+    <div class="timeline-item fade-in">
+      <div class="timeline-marker"><div class="dot"></div><div class="dot-line"></div></div>
+      <div class="timeline-content">
+        <div class="time">12:00 — 12:30</div>
+        <div class="title">新人补妆 + 更换主纱</div>
+        <div class="detail">第三套：主纱</div>
+      </div>
+    </div>
+
+    <div class="timeline-item fade-in">
+      <div class="timeline-marker"><div class="dot"></div><div class="dot-line"></div></div>
+      <div class="timeline-content">
+        <div class="time">12:30 — 12:50</div>
+        <div class="title">婚礼场地拍摄</div>
+        <div class="detail">First Look · 婚礼小细节</div>
+      </div>
+    </div>
+
+    <!-- 婚礼仪式 -->
+    <div class="phase-header">婚礼仪式</div>
+  </div>
+
+  <div class="photo-strip fade-in">
+    <img src="wedding_images/image6.png" class="photo-wide" alt="仪式教堂">
+  </div>
+
+  <div class="timeline" style="padding-top:0;">
+
+    <div class="timeline-item fade-in">
+      <div class="timeline-marker"><div class="dot"></div><div class="dot-line"></div></div>
+      <div class="timeline-content">
+        <div class="time">12:40</div>
+        <div class="title">宾客入场</div>
+        <div class="detail">亲友抵达 · 督导讲解礼仪流程</div>
+      </div>
+    </div>
+
+    <div class="timeline-item fade-in ceremony-row">
+      <div class="timeline-marker"><div class="dot dot-dark"></div><div class="dot-line"></div></div>
+      <div class="timeline-content">
+        <div class="time">13:00 — 13:30</div>
+        <div class="title">婚礼仪式</div>
+        <div class="detail" style="margin-top:0.4rem;">新郎入场 → 新娘入场 → 牧师发言 → 交换戒指 → 亲吻签名 → 花瓣雨</div>
+      </div>
+    </div>
+
+    <div class="timeline-item fade-in">
+      <div class="timeline-marker"><div class="dot"></div><div class="dot-line"></div></div>
+      <div class="timeline-content">
+        <div class="time">13:30 — 14:00</div>
+        <div class="title">婚礼仪式结束 · 大合影</div>
+        <div class="detail">撒花瓣祝福</div>
+      </div>
+    </div>
+
+    <!-- 下午 -->
+    <div class="phase-header">下午</div>
+
+    <div class="timeline-item fade-in">
+      <div class="timeline-marker"><div class="dot"></div><div class="dot-line"></div></div>
+      <div class="timeline-content">
+        <div class="time">14:00 — 15:00</div>
+        <div class="title">午餐 &amp; 休息</div>
+        <div class="detail">新人 / 拍摄团队 / 化妆师</div>
+      </div>
+    </div>
+
+    <div class="timeline-item fade-in">
+      <div class="timeline-marker"><div class="dot"></div><div class="dot-line"></div></div>
+      <div class="timeline-content">
+        <div class="time">15:00 — 15:30</div>
+        <div class="title">酒店主纱继续拍摄</div>
+        <div class="detail">大堂区域 / 楼梯</div>
+      </div>
+    </div>
+
+    <div class="timeline-item fade-in">
+      <div class="timeline-marker"><div class="dot"></div><div class="dot-line"></div></div>
+      <div class="timeline-content">
+        <div class="time">15:30 — 16:00</div>
+        <div class="title">新娘补妆换外拍轻纱</div>
+        <div class="detail">第四套：外拍轻纱</div>
+      </div>
+    </div>
+
+    <div class="timeline-item fade-in">
+      <div class="timeline-marker"><div class="dot"></div><div class="dot-line"></div></div>
+      <div class="timeline-content">
+        <div class="time">16:00 — 16:30</div>
+        <div class="title">出发前往外拍场地</div>
+        <div class="detail">Balangan 悬崖（路程约30分钟）</div>
+        <div class="tag">外拍地点</div>
+      </div>
+    </div>
+
+    <div class="timeline-item fade-in">
+      <div class="timeline-marker"><div class="dot"></div><div class="dot-line"></div></div>
+      <div class="timeline-content">
+        <div class="time">16:30 — 17:30</div>
+        <div class="title">Balangan 悬崖外景拍摄</div>
+        <div class="detail">悬崖 / 沙滩取景</div>
+      </div>
+    </div>
+
+    <div class="timeline-item fade-in">
+      <div class="timeline-marker"><div class="dot"></div><div class="dot-line"></div></div>
+      <div class="timeline-content">
+        <div class="time">17:30 — 18:00</div>
+        <div class="title">新人补妆换晚宴礼服</div>
+        <div class="detail">第五套：晚宴礼服</div>
+      </div>
+    </div>
+
+    <div class="timeline-item fade-in">
+      <div class="timeline-marker"><div class="dot"></div><div class="dot-line"></div></div>
+      <div class="timeline-content">
+        <div class="time">18:00</div>
+        <div class="title">化妆师结束服务</div>
+      </div>
+    </div>
+
+    <!-- 晚宴 -->
+    <div class="phase-header">晚宴</div>
+  </div>
+
+  <div class="photo-strip fade-in">
+    <img src="wedding_images/image9.png" class="photo-wide" alt="海边晚宴场地">
+  </div>
+
+  <div class="timeline" style="padding-top:0;">
+
+    <div class="timeline-item fade-in">
+      <div class="timeline-marker"><div class="dot"></div><div class="dot-line"></div></div>
+      <div class="timeline-content">
+        <div class="time">18:15</div>
+        <div class="title">宾客前往晚宴场地</div>
+        <div class="detail">努沙杜瓦肉桂（14座车接送）</div>
+      </div>
+    </div>
+
+    <div class="timeline-item fade-in">
+      <div class="timeline-marker"><div class="dot"></div><div class="dot-line"></div></div>
+      <div class="timeline-content">
+        <div class="time">18:50 — 18:55</div>
+        <div class="title">宾客准备迎接新人</div>
+      </div>
+    </div>
+
+    <div class="timeline-item fade-in ceremony-row">
+      <div class="timeline-marker"><div class="dot dot-dark"></div><div class="dot-line"></div></div>
+      <div class="timeline-content">
+        <div class="time">19:00</div>
+        <div class="title">新人入场</div>
+        <div class="detail">仙女棒迎接 · 新人致辞</div>
+      </div>
+    </div>
+
+    <div class="timeline-item fade-in">
+      <div class="timeline-marker"><div class="dot"></div><div class="dot-line"></div></div>
+      <div class="timeline-content">
+        <div class="time">19:00 — 19:10</div>
+        <div class="title">乐队演奏（第一趴）</div>
+        <div class="detail">三人乐队演奏</div>
+      </div>
+    </div>
+
+    <div class="timeline-item fade-in">
+      <div class="timeline-marker"><div class="dot"></div><div class="dot-line"></div></div>
+      <div class="timeline-content">
+        <div class="time">19:10</div>
+        <div class="title">晚宴开始 · 倒香槟塔 · 切蛋糕</div>
+        <div class="detail">Bauchet Origine Brut 香槟 · 冷焰火6柱</div>
+      </div>
+    </div>
+
+    <div class="timeline-item fade-in">
+      <div class="timeline-marker"><div class="dot"></div><div class="dot-line"></div></div>
+      <div class="timeline-content">
+        <div class="time">19:25</div>
+        <div class="title">火舞表演</div>
+        <div class="detail">三人火舞 · 8-10分钟</div>
+      </div>
+    </div>
+
+    <div class="timeline-item fade-in">
+      <div class="timeline-marker"><div class="dot"></div><div class="dot-line"></div></div>
+      <div class="timeline-content">
+        <div class="time">19:35</div>
+        <div class="title">First Dance</div>
+        <div class="detail">新人第一支舞 · 5-10分钟</div>
+      </div>
+    </div>
+
+    <div class="timeline-item fade-in">
+      <div class="timeline-marker"><div class="dot"></div><div class="dot-line"></div></div>
+      <div class="timeline-content">
+        <div class="time">19:45</div>
+        <div class="title">游戏环节</div>
+        <div class="detail">5个互动游戏（详见下方）</div>
+      </div>
+    </div>
+
+    <div class="timeline-item fade-in">
+      <div class="timeline-marker"><div class="dot"></div><div class="dot-line"></div></div>
+      <div class="timeline-content">
+        <div class="time">20:00</div>
+        <div class="title">乐队演奏（第二趴）</div>
+        <div class="detail">摄影 / 摄像团队服务结束</div>
+      </div>
+    </div>
+
+    <div class="timeline-item fade-in">
+      <div class="timeline-marker"><div class="dot"></div><div class="dot-line"></div></div>
+      <div class="timeline-content">
+        <div class="time">20:30</div>
+        <div class="title">与亲友干杯聊天</div>
+      </div>
+    </div>
+
+    <div class="timeline-item fade-in">
+      <div class="timeline-marker"><div class="dot"></div><div class="dot-line"></div></div>
+      <div class="timeline-content">
+        <div class="time">21:45</div>
+        <div class="title">亲友返回酒店休息</div>
+        <div class="detail">新人乘坐专车回四季酒店</div>
+      </div>
+    </div>
+
+    <div class="timeline-item fade-in">
+      <div class="timeline-marker"><div class="dot"></div><div class="dot-line"></div></div>
+      <div class="timeline-content">
+        <div class="time">22:00</div>
+        <div class="title">晚宴结束</div>
+        <div class="detail">督导团队结束</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ─── Games ─── -->
+<section class="games-section">
+  <div class="section-title">晚宴游戏</div>
+  <div class="section-divider"></div>
+
+  <div class="game-card fade-in">
+    <div class="game-header">
+      <svg class="game-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+      </svg>
+      <div class="game-name">酒满则溢</div>
+    </div>
+    <div class="game-rules">准备一个大杯子，宾客轮流往里倒酒，如果倒出来就得把整杯喝掉，一共玩三轮。</div>
+  </div>
+
+  <div class="game-card fade-in">
+    <div class="game-header">
+      <svg class="game-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="2" y="4" width="20" height="16" rx="2"/>
+        <path d="M12 4v16M2 12h20"/>
+      </svg>
+      <div class="game-name">举牌凑数游戏</div>
+    </div>
+    <div class="game-rules">
+      道具：超大扑克牌（16倍）<br><br>
+      全体成员一起转圈圈，新人随机说一个数字，宾客们抱团凑出对应数字。没组成符合要求的人数均被淘汰。<br><br>
+      <strong>第一局：</strong>凑成四个一样的数字<br>
+      <strong>第二局：</strong>凑成同花顺<br>
+      <strong>第三局：</strong>相加总和等于指定数字
+    </div>
+  </div>
+
+  <div class="game-card fade-in">
+    <div class="game-header">
+      <svg class="game-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="10"/>
+        <path d="M12 8v4l3 3"/>
+      </svg>
+      <div class="game-name">一站到底</div>
+    </div>
+    <div class="game-rules">主持人提问新郎新娘的问题，宾客站在新郎或新娘背后选择答案，站错将被淘汰，站到最后的人将获得盲盒大奖。</div>
+  </div>
+
+  <div class="game-card fade-in">
+    <div class="game-header">
+      <svg class="game-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="10"/>
+        <line x1="12" y1="8" x2="12" y2="12"/>
+        <line x1="12" y1="16" x2="12.01" y2="16"/>
+      </svg>
+      <div class="game-name">捂眼转圈弹瓶盖</div>
+    </div>
+    <div class="game-rules">右手捂着左眼，原地转五圈，径直走到放着瓶盖的瓶子前，左手弹走瓶盖，瓶子不倒则取胜。输了喝一杯酒，赢了拿走礼物。</div>
+  </div>
+
+  <div class="game-card fade-in">
+    <div class="game-header">
+      <svg class="game-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M20 12V8H6a2 2 0 0 1-2-2c0-1.1.9-2 2-2h12v4"/>
+        <path d="M4 6v12c0 1.1.9 2 2 2h14v-4"/>
+        <path d="M18 12a2 2 0 0 0-2 2c0 1.1.9 2 2 2h4v-4h-4z"/>
+      </svg>
+      <div class="game-name">盲盒喝酒拍卖</div>
+    </div>
+    <div class="game-rules">由主持人进行奖品拍卖，起价半杯红酒或苦瓜汁原液，无封顶。每次竞拍红酒不得少于半杯，饮料不得少于一杯，最高价可得一份礼物并现场喝完竞拍饮品。</div>
+  </div>
+</section>
+
+<!-- ─── Footer ─── -->
+<footer class="footer">
+  <div class="footer-hearts">
+    <div class="heart-line"></div>
+    <div class="heart-diamond"></div>
+    <div class="heart-line"></div>
+  </div>
+  <div class="footer-names">Jaydon &amp; Sissi</div>
+  <div class="footer-date">2026年4月27日 · 巴厘岛</div>
+  <div class="footer-note">MR. JAYDON ZHANG &amp; MS. SISSI WEI</div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.07, rootMargin: '0px 0px -25px 0px' });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
